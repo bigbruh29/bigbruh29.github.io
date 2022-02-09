@@ -14246,7 +14246,7 @@ Game.Launch=function()
 		Game.mouseMoved=0;
 		Game.CanClick=1;
 		
-		if ((Game.toSave || (Game.T%(Game.fps*60)==0 && Game.T>Game.fps*300 && Game.prefs.autosave)) && !Game.OnAscend)
+		if ((Game.toSave || (Game.T%(Game.fps*3000)==0 && Game.T>Game.fps*3000 && Game.prefs.autosave)) && !Game.OnAscend)
 		{
 			//check if we can save : no minigames are loading
 			var canSave=true;
