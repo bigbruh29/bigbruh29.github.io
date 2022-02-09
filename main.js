@@ -14246,7 +14246,7 @@ Game.Launch=function()
 		Game.mouseMoved=0;
 		Game.CanClick=1;
 		
-		if ((Game.toSave || (Game.T%(Game.fps*60)==0 && Game.T>Game.fps*10 && Game.prefs.autosave)) && !Game.OnAscend)
+		if ((Game.toSave || (Game.T%(Game.fps*300)==0 && Game.T>Game.fps*10 && Game.prefs.autosave)) && !Game.OnAscend)
 		{
 			//check if we can save : no minigames are loading
 			var canSave=true;
@@ -14259,7 +14259,7 @@ Game.Launch=function()
 			{
 				Game.prefs.showBackupWarning=0;
 				var filename=Game.bakeryName.replace(/[^a-zA-Z0-9]+/g,'')+'Bakery';
-				var text=Game.WriteSave(2);
+				var text=Game.WriteSave(1);
 				var blob=new Blob([text],{type:'text/plain;charset=utf-8'});
 				saveAs(blob,filename+'.txt');
 				
