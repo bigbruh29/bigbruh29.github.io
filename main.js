@@ -14267,6 +14267,19 @@ Game.Launch=function()
 			
 		}
 		
+		if ((Game.toSave || (Game.T%(Game.fps*60)==0 && Game.T>Game.fps*10 && Game.prefs.autosave)) && !Game.OnAscend)
+		{
+			//check if we can save : no minigames are loading
+			var canSave=true;
+			for (var i in Game.Objects)
+			{
+				var me=Game.Objects[i];
+				if (me.minigameLoading){canSave=false;break;}
+			}
+			if (canSave) Game.WriteSave();
+			
+		}
+		
 		//every hour: get server data (ie. update notification, patreon data)
 		if (Game.T%(Game.fps*60*60)==0 && Game.T>Game.fps*10/* && Game.prefs.autoupdate*/) {Game.CheckUpdates();Game.GrabData();}
 		
